@@ -1,9 +1,12 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
+require("electron-reload")(__dirname, {
+  electron: path.join(__dirname, "node_modules", ".bin", "electron"),
+});
+
 function createWindow() {
   const preloadPath = path.join(__dirname, "preload.js");
-  console.log("Preload script path:", preloadPath); // 打印路径进行验证
 
   const win = new BrowserWindow({
     width: 800,
